@@ -1,9 +1,8 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
 
-import { fetchCollctionStartAsync } from '../../redux/shop/shop.actions';
+import { fetchCollctionStart } from '../../redux/shop/shop.actions';
 
 import CollectionOverviewContainer from '../../components/collections-overview/collections-overview.container';
 import CollectionPageContainer from '../collection/collection.container';
@@ -12,8 +11,8 @@ class ShopPage extends React.Component {
   unsubscribeFromSnapshot = null;
 
   componentDidMount() {
-    const { fetchCollctionStartAsync } = this.props;
-    fetchCollctionStartAsync()
+    const { fetchCollctionStart } = this.props;
+    fetchCollctionStart()
   }
 
   render() {
@@ -35,7 +34,7 @@ class ShopPage extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  fetchCollctionStartAsync: () => dispatch(fetchCollctionStartAsync())
+  fetchCollctionStart: () => dispatch(fetchCollctionStart())
 })
 
 export default connect(null, mapDispatchToProps)(ShopPage); 
